@@ -21,7 +21,7 @@ class SH1106Base(object):
         self._bus = i2c(port=busnum, address=i2c_address)
 
     def command(self, c):
-        """Send command byte to display."""
+      """Send command byte to display."""
       self._driver.command(c)
 
     def begin(self, vccstate=None):
@@ -29,13 +29,14 @@ class SH1106Base(object):
       
     def display(self):
       """Write display buffer to physical display."""
-      self._driver.display(self._buffer)
+      if self._buffer:
+            self._driver.display(self._buffer)
 
     def image(self, image):
-       """Set buffer to value of Python Imaging Library image.  The image should
-        be in 1 bit mode and a size equal to the display size.
-        """
-        self._buffer = image
+      """Set buffer to value of Python Imaging Library image.  The image should
+      be in 1 bit mode and a size equal to the display size.
+      """
+      self._buffer = image
 
     def clear(self):
       self._driver.clear()
