@@ -3,6 +3,7 @@ import time
 import logging
 import textwrap
 from bin.SSD1306 import SSD1306_128_32 as SSD1306
+from bin.SH1106 import SH1106_128_64 as SH1106
 from bin.Scroller import Scroller
 from bin.Utils import Utils
 class Display:
@@ -13,7 +14,7 @@ class Display:
         if not isinstance(busnum, int):
             busnum = Display.DEFAULT_BUSNUM
 
-        self.display = SSD1306(busnum)
+        self.display = SH1106(busnum)
         self.clear()
         self.width = self.display.width
         self.height = self.display.height
