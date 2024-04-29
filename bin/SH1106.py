@@ -30,7 +30,7 @@ class SH1106Base(object):
   def display(self):
     """Write display buffer to physical display."""
     if self._buffer:
-          self._driver.display(self._buffer)
+      self._driver.display(self._buffer)
 
   def image(self, image):
     """Set buffer to value of Python Imaging Library image.  The image should
